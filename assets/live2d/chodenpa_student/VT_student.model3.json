@@ -1,0 +1,34 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "VT_student.moc3",
+		"Textures": [
+			"VT_student.4096/texture_00.png",
+			"VT_student.4096/texture_01.png",
+			"VT_student.4096/texture_02.png",
+			"VT_student.4096/texture_03.png",
+			"VT_student.4096/texture_04.png"
+		],
+		"Physics": "VT_student.physics3.json",
+		"Expressions": [
+			{ "Name": "sad", "File": "facial/SAD.exp3.json" },
+			{ "Name": "angry", "File": "facial/angry.exp3.json" },
+			{ "Name": "yandere", "File": "facial/黑化.exp3.json" },
+			{ "Name": "black_tights", "File": "facial/黑絲襪.exp3.json" },
+			{ "Name": "lock_body_y", "File": "facial/不要蹲下.exp3.json" }
+		],
+		"DisplayInfo": "VT_student.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": ["ParamEyeROpen"]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": ["ParamMouthOpenY"]
+		}
+	]
+}

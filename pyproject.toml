@@ -1,0 +1,26 @@
+[project]
+name = "hdt-render"
+version = "0.1.0"
+description = "Remote HDT News Live2D MP4 render service"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "python-multipart>=0.0.9",
+  "Pillow>=10",
+  "PyOpenGL>=3.1.10",
+  "glfw>=2.10",
+  "live2d-py>=0.7.0",
+  "numpy>=2.0",
+]
+
+[project.scripts]
+hdt-render-api = "hdt_render.server:main"
+hdt-render-cli = "hdt_render.cli:main"
+
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

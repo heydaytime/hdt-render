@@ -1,0 +1,329 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamHighlightScale",
+			"GroupId": "ParamGroup",
+			"Name": "高光縮放"
+		},
+		{
+			"Id": "ParamangerSwitch",
+			"GroupId": "ParamGroup",
+			"Name": "生氣或難過"
+		},
+		{
+			"Id": "ParamHighKight_X",
+			"GroupId": "ParamGroup",
+			"Name": "眼睛高光X"
+		},
+		{
+			"Id": "ParamHighlight_R",
+			"GroupId": "ParamGroup",
+			"Name": "眼睛高光R"
+		},
+		{
+			"Id": "ParamIrisScale",
+			"GroupId": "ParamGroup",
+			"Name": "瞳孔放大縮小"
+		},
+		{
+			"Id": "ParamTear",
+			"GroupId": "ParamGroup",
+			"Name": "眼淚搖晃"
+		},
+		{
+			"Id": "ParamEyelashWave",
+			"GroupId": "ParamGroup",
+			"Name": "睫毛顫抖"
+		},
+		{
+			"Id": "ParamEyeROpen",
+			"GroupId": "ParamGroup",
+			"Name": "右目　開閉"
+		},
+		{
+			"Id": "ParamSodeShake",
+			"GroupId": "ParamGroup",
+			"Name": "袖子晃動"
+		},
+		{
+			"Id": "ParamEyeRSmile",
+			"GroupId": "ParamGroup",
+			"Name": "右目　笑顔"
+		},
+		{
+			"Id": "ParamEyeBallX",
+			"GroupId": "ParamGroup",
+			"Name": "目玉 X"
+		},
+		{
+			"Id": "ParamEyeBallY",
+			"GroupId": "ParamGroup",
+			"Name": "目玉 Y"
+		},
+		{
+			"Id": "ParamBrowRY",
+			"GroupId": "ParamGroup",
+			"Name": "右眉　上下"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"GroupId": "ParamGroup3",
+			"Name": "口　変形"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"GroupId": "ParamGroup3",
+			"Name": "口　開閉"
+		},
+		{
+			"Id": "ParamMouthSize",
+			"GroupId": "ParamGroup3",
+			"Name": "嘴巴大小"
+		},
+		{
+			"Id": "ParamHairFront",
+			"GroupId": "ParamGroup4",
+			"Name": "髪揺れ　前"
+		},
+		{
+			"Id": "ParamHairFront2",
+			"GroupId": "ParamGroup4",
+			"Name": "髪揺れ　前2"
+		},
+		{
+			"Id": "ParamHairBack",
+			"GroupId": "ParamGroup4",
+			"Name": "髪揺れ　後M"
+		},
+		{
+			"Id": "ParamHairSide",
+			"GroupId": "ParamGroup4",
+			"Name": "髪揺れ　横"
+		},
+		{
+			"Id": "ParamShakeYoArm",
+			"GroupId": "ParamGroup4",
+			"Name": "手臂RL晃動"
+		},
+		{
+			"Id": "Param",
+			"GroupId": "ParamGroup4",
+			"Name": "Extra_hair_BACK"
+		},
+		{
+			"Id": "Param2",
+			"GroupId": "ParamGroup4",
+			"Name": "Extra_hair_front"
+		},
+		{
+			"Id": "Paramside_hairr",
+			"GroupId": "ParamGroup4",
+			"Name": "側鬢角"
+		},
+		{
+			"Id": "ParamBlackTigh",
+			"GroupId": "ParamGroup5",
+			"Name": "黑絲襪"
+		},
+		{
+			"Id": "ParamBodyAngleX",
+			"GroupId": "ParamGroup6",
+			"Name": "体の回転　X"
+		},
+		{
+			"Id": "ParamBodyAngleY",
+			"GroupId": "ParamGroup6",
+			"Name": "体の回転　Y"
+		},
+		{
+			"Id": "ParamBodyAngleZ",
+			"GroupId": "ParamGroup6",
+			"Name": "体の回転　Z"
+		},
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "ParamGroup6",
+			"Name": "角度 X"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "ParamGroup6",
+			"Name": "角度 Y"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "ParamGroup6",
+			"Name": "角度 Z"
+		},
+		{
+			"Id": "ParamRebonBig_L",
+			"GroupId": "ParamGroup2",
+			"Name": "rebon_B_L"
+		},
+		{
+			"Id": "ParamRebonBig",
+			"GroupId": "ParamGroup2",
+			"Name": "蝴蝶結整體晃(大)"
+		},
+		{
+			"Id": "ParamRebonSmall",
+			"GroupId": "ParamGroup2",
+			"Name": "蝴蝶結整體晃(小)"
+		},
+		{
+			"Id": "ParamRebonSmall_R",
+			"GroupId": "ParamGroup2",
+			"Name": "rebon_S_R"
+		},
+		{
+			"Id": "ParamRebonBig_R",
+			"GroupId": "ParamGroup2",
+			"Name": "rebon_B_R"
+		},
+		{
+			"Id": "ParamRebonSmall_L",
+			"GroupId": "ParamGroup2",
+			"Name": "rebon_S_L"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "",
+			"Name": "呼吸"
+		},
+		{
+			"Id": "ParamCheek",
+			"GroupId": "",
+			"Name": "照れ"
+		},
+		{
+			"Id": "Paramuro",
+			"GroupId": "",
+			"Name": "黒"
+		},
+		{
+			"Id": "Paramcry_switch",
+			"GroupId": "",
+			"Name": "cry"
+		},
+		{
+			"Id": "ParamSkirtWaveX",
+			"GroupId": "",
+			"Name": "百褶裙搖擺X"
+		},
+		{
+			"Id": "ParamSkirtWaveY",
+			"GroupId": "",
+			"Name": "百褶裙搖晃Y"
+		},
+		{
+			"Id": "Paramside_F",
+			"GroupId": "",
+			"Name": "かみゆれ　横まえ"
+		},
+		{
+			"Id": "ParamPamShake",
+			"GroupId": "",
+			"Name": "手掌搖晃"
+		},
+		{
+			"Id": "ParamClothX",
+			"GroupId": "",
+			"Name": "衣襬X"
+		},
+		{
+			"Id": "ParamClothY",
+			"GroupId": "",
+			"Name": "衣襬Y"
+		},
+		{
+			"Id": "ParamphysicBodyZ",
+			"GroupId": "",
+			"Name": "physicBodyZ"
+		}
+	],
+	"ParameterGroups": [
+		{
+			"Id": "ParamGroup",
+			"GroupId": "",
+			"Name": "EYES"
+		},
+		{
+			"Id": "ParamGroup3",
+			"GroupId": "",
+			"Name": "嘴型"
+		},
+		{
+			"Id": "ParamGroup4",
+			"GroupId": "",
+			"Name": "頭髮"
+		},
+		{
+			"Id": "ParamGroup5",
+			"GroupId": "",
+			"Name": "腳的圖層"
+		},
+		{
+			"Id": "ParamGroup6",
+			"GroupId": "",
+			"Name": "身體旋轉"
+		},
+		{
+			"Id": "ParamGroup2",
+			"GroupId": "",
+			"Name": "rebon"
+		}
+	],
+	"Parts": [
+		{
+			"Id": "Part2",
+			"Name": "資料夾 2 的複製"
+		},
+		{
+			"Id": "Part",
+			"Name": "HAIR"
+		},
+		{
+			"Id": "Part3",
+			"Name": "睫毛"
+		},
+		{
+			"Id": "Part8",
+			"Name": "袖子"
+		},
+		{
+			"Id": "Part5",
+			"Name": "資料夾 4"
+		}
+	],
+	"CombinedParameters": [
+		[
+			"ParamHighKight_X",
+			"ParamHighlight_R"
+		],
+		[
+			"ParamEyeBallX",
+			"ParamEyeBallY"
+		],
+		[
+			"ParamMouthOpenY",
+			"ParamMouthSize"
+		],
+		[
+			"ParamBodyAngleX",
+			"ParamBodyAngleY"
+		],
+		[
+			"ParamAngleX",
+			"ParamAngleY"
+		],
+		[
+			"ParamSkirtWaveX",
+			"ParamSkirtWaveY"
+		],
+		[
+			"ParamClothX",
+			"ParamClothY"
+		]
+	]
+}

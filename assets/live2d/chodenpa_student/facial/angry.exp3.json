@@ -1,0 +1,15 @@
+{
+    "Type": "Live2D Expression",
+    "Parameters": [
+        {
+            "Id": "ParamangerSwitch",
+            "Value": "1",
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamMouthForm",
+            "Value": "-1",
+            "Blend": "Add"
+        }
+    ]
+}
