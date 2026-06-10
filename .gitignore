@@ -1,3 +1,4 @@
+deploy/
 .venv/
 __pycache__/
 *.pyc

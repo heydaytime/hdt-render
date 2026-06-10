@@ -18,7 +18,7 @@ The service does **not** generate TTS itself in v1. The caller sends the narrati
 ### Health
 
 ```bash
-curl http://localhost:8088/health
+curl http://localhost:8088/v1/render/health
 ```
 
 ### Render MP4
@@ -33,12 +33,61 @@ curl -X POST http://localhost:8088/v1/render \
 
 The response body is the MP4 file. The response includes an `X-HDT-Render-Job` header with the internal job id.
 
+### Async Render Job
+
+```bash
+curl -X POST http://localhost:8088/v1/render/jobs \
+  -H 'Idempotency-Key: broadcast-chunk-123' \
+  -F 'headline=Iran Talks Stall as Ebola Outbreak Escalates' \
+  -F 'script=The full narration script used to produce the uploaded WAV.' \
+  -F 'narration=@tmp/test-narration.wav;type=audio/wav'
+```
+
+Response:
+
+```json
+{
+  "ok": true,
+  "job": {
+    "id": "render_1780214027473",
+    "status": "queued",
+    "stage": "Queued",
+    "progress": 0,
+    "clientRequestId": "broadcast-chunk-123",
+    "headline": "Iran Talks Stall as Ebola Outbreak Escalates",
+    "scriptHash": "sha256...",
+    "createdAt": "2026-06-07T00:00:00.000Z",
+    "updatedAt": "2026-06-07T00:00:00.000Z",
+    "downloadUrl": "/v1/render/jobs/render_1780214027473/download"
+  }
+}
+```
+
+Poll the job:
+
+```bash
+curl http://localhost:8088/v1/render/jobs/render_1780214027473
+```
+
+Recover by idempotency key if the original connection fails before you receive the job id:
+
+```bash
+curl 'http://localhost:8088/v1/render/jobs?client_request_id=broadcast-chunk-123'
+```
+
+Download the completed MP4:
+
+```bash
+curl http://localhost:8088/v1/render/jobs/render_1780214027473/download -o output.mp4
+```
+
 Optional form fields:
 
 - `width`, default `1920`
 - `height`, default `1080`
 - `fps`, default `30`
 - `use_nvenc`, default `true`
+- `client_request_id`, optional stable idempotency key. The `Idempotency-Key` header is also accepted.
 
 ## Runtime Requirements
 
@@ -83,6 +132,24 @@ HDT_RENDER_PORT=8088 xvfb-run -a .venv/bin/hdt-render-api
 
 Port `8088` is intentional for the current server because port `8000` is already used by the TTS service.
 
+## Systemd
+
+The RTX server runs the renderer through systemd:
+
+```bash
+sudo systemctl status hdt-render.service
+sudo systemctl restart hdt-render.service
+sudo journalctl -u hdt-render.service -n 80 --no-pager
+```
+
+Installed unit:
+
+```txt
+deploy/hdt-render.service -> /etc/systemd/system/hdt-render.service
+```
+
+The service runs as `heyday`, starts on boot, uses `/home/heyday/hdt-render-test` as its working directory, binds `0.0.0.0:8088`, and launches through `xvfb-run` for the Live2D OpenGL context.
+
 ## CLI Smoke Test
 
 ```bash
@@ -100,8 +167,9 @@ ffprobe -v error -show_entries format=duration,size -of json tmp/smoke.mp4
 The HDT backend should:
 
 1. Generate or obtain the final narration WAV.
-2. Submit `headline`, `script`, and the WAV file to `/v1/render`.
-3. Store or stream the returned MP4.
+2. Submit `headline`, `script`, and the WAV file to `/v1/render/jobs` with a stable `client_request_id`.
+3. Poll `/v1/render/jobs/:id`.
+4. Download the MP4 from `/v1/render/jobs/:id/download` when completed.
 
 The render service stores per-request intermediates under `jobs/` by default. Override with:
 
@@ -112,9 +180,20 @@ HDT_RENDER_JOBS_ROOT=/srv/hdt-render/jobs
 Request contract:
 
 - Input: multipart form with `headline`, `script`, and a 16-bit PCM WAV `narration` upload.
-- Output: response body is the rendered MP4.
-- Header: `X-HDT-Render-Job` contains the internal job directory name.
+- Sync output: `POST /v1/render` response body is the rendered MP4.
+- Async output: `POST /v1/render/jobs` response body is a JSON job snapshot with a durable job id.
+- Header: sync render responses include `X-HDT-Render-Job` with the internal job directory name.
 - Current behavior: `script` is validated and saved for traceability; the visual render is driven by `headline` plus the uploaded narration WAV.
+
+Async job statuses:
+
+- `queued`
+- `rendering`
+- `completed`
+- `failed`
+- `cancelled`
+
+Only one render runs at a time. On startup, queued jobs are resumed. Jobs that were rendering when the service stopped are retried once, then marked failed if they are found rendering again after another restart.
 
 ## Encoding
 
